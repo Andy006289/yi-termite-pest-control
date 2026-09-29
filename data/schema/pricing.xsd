@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Structure of data/pricing.xml: the rules behind the indicative estimate. -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified">
+
+  <xs:simpleType name="Money">
+    <xs:restriction base="xs:nonNegativeInteger"><xs:maxInclusive value="5000"/></xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="Postcode">
+    <xs:restriction base="xs:string"><xs:pattern value="3[0-9]{3}"/></xs:restriction>
+  </xs:simpleType>
+
+  <!-- a labelled option with an optional icon and a price adjustment -->
+  <xs:complexType name="Adjustment">
+    <xs:simpleContent>
+      <xs:extension base="xs:string">
+        <xs:attribute name="id" type="xs:string" use="required"/>
+        <xs:attribute name="icon" type="xs:string"/>
+        <xs:attribute name="addMin" type="Money" use="required"/>
+        <xs:attribute name="addMax" type="Money" use="required"/>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:element name="pricing">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="bases">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="base" maxOccurs="unbounded">
+                <xs:complexType>
+                  <xs:attribute name="pest" type="xs:string" use="required"/>
+                  <xs:attribute name="min" type="Money" use="required"/>
+                  <xs:attribute name="max" type="Money" use="required"/>
+                  <xs:attribute name="duration" type="xs:string" use="required"/>
+                  <xs:attribute name="label" type="xs:string" use="required"/>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="properties">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="property" maxOccurs="unbounded">
+                <xs:complexType>
+                  <xs:simpleContent>
+                    <xs:extension base="xs:string">
+                      <xs:attribute name="id" type="xs:string" use="required"/>
+                      <xs:attribute name="icon" type="xs:string"/>
+                      <xs:attribute name="hint" type="xs:string"/>
+                      <xs:attribute name="factor" use="required">
+                        <xs:simpleType><xs:restriction base="xs:decimal"><xs:minInclusive value="0.5"/><xs:maxInclusive value="2"/></xs:restriction></xs:simpleType>
+                      </xs:attribute>
+                    </xs:extension>
+                  </xs:simpleContent>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="sizes">
+          <xs:complexType><xs:sequence><xs:element name="size" type="Adjustment" maxOccurs="unbounded"/></xs:sequence></xs:complexType>
+        </xs:element>
+        <xs:element name="areas">
+          <xs:complexType><xs:sequence><xs:element name="area" type="Adjustment" maxOccurs="unbounded"/></xs:sequence></xs:complexType>
+        </xs:element>
+        <xs:element name="zones">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="zone" maxOccurs="unbounded">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="postcodes" maxOccurs="unbounded">
+                      <xs:complexType>
+                        <xs:attribute name="from" type="Postcode" use="required"/>
+                        <xs:attribute name="to" type="Postcode" use="required"/>
+                      </xs:complexType>
+                    </xs:element>
+                  </xs:sequence>
+                  <xs:attribute name="id" type="xs:string" use="required"/>
+                  <xs:attribute name="label" type="xs:string" use="required"/>
+                  <xs:attribute name="travel" type="Money" use="required"/>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+      <xs:attribute name="currency" type="xs:string" use="required"/>
+      <xs:attribute name="gstIncluded" type="xs:boolean" use="required"/>
+    </xs:complexType>
+    <xs:unique name="uniqueBase"><xs:selector xpath="bases/base"/><xs:field xpath="@pest"/></xs:unique>
+  </xs:element>
+</xs:schema>

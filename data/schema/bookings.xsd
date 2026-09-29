@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Structure of data/bookings.xml and of every booking the app creates.
+  js/store.js builds new <booking> elements to this same shape.
+-->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified">
+
+  <xs:simpleType name="Ref">
+    <xs:restriction base="xs:string"><xs:pattern value="YI-[0-9]{5}"/></xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="Mobile">
+    <!-- Australian mobile, spaces allowed: 04xx xxx xxx -->
+    <xs:restriction base="xs:string"><xs:pattern value="04[0-9]{2} ?[0-9]{3} ?[0-9]{3}"/></xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="Status">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="requested"/><xs:enumeration value="confirmed"/>
+      <xs:enumeration value="completed"/><xs:enumeration value="cancelled"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="Booking">
+    <xs:sequence>
+      <xs:element name="created" type="xs:dateTime"/>
+      <xs:element name="visit">
+        <xs:complexType>
+          <xs:attribute name="date" type="xs:date"/>
+          <xs:attribute name="daysFromToday" type="xs:nonNegativeInteger"/>
+          <xs:attribute name="window" type="xs:string" use="required"/>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="property">
+        <xs:complexType>
+          <xs:simpleContent>
+            <xs:extension base="xs:string">
+              <xs:attribute name="type" type="xs:string" use="required"/>
+              <xs:attribute name="size" type="xs:string" use="required"/>
+              <xs:attribute name="area" type="xs:string" use="required"/>
+            </xs:extension>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="estimate">
+        <xs:complexType>
+          <xs:attribute name="min" type="xs:nonNegativeInteger" use="required"/>
+          <xs:attribute name="max" type="xs:nonNegativeInteger" use="required"/>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="price" type="xs:nonNegativeInteger" minOccurs="0"/>
+      <xs:element name="contact">
+        <xs:complexType>
+          <xs:attribute name="firstName" type="xs:string" use="required"/>
+          <xs:attribute name="lastName" type="xs:string" use="required"/>
+          <xs:attribute name="mobile" type="Mobile" use="required"/>
+          <xs:attribute name="email" type="xs:string"/>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="access" type="xs:string" minOccurs="0"/>
+      <xs:element name="notes" type="xs:string" minOccurs="0"/>
+      <xs:element name="report" minOccurs="0">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="title" type="xs:string"/>
+            <xs:element name="findings" type="xs:string"/>
+            <xs:element name="treatment" type="xs:string"/>
+            <xs:element name="areas">
+              <xs:complexType><xs:sequence><xs:element name="area" type="xs:string" maxOccurs="unbounded"/></xs:sequence></xs:complexType>
+            </xs:element>
+            <xs:element name="recommendation">
+              <xs:complexType>
+                <xs:simpleContent>
+                  <xs:extension base="xs:string"><xs:attribute name="nextInspection" type="xs:gYearMonth"/></xs:extension>
+                </xs:simpleContent>
+              </xs:complexType>
+            </xs:element>
+            <xs:element name="warranty">
+              <xs:complexType>
+                <xs:simpleContent>
+                  <xs:extension base="xs:string"><xs:attribute name="until" type="xs:date" use="required"/></xs:extension>
+                </xs:simpleContent>
+              </xs:complexType>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+    <xs:attribute name="ref" type="Ref" use="required"/>
+    <xs:attribute name="status" type="Status" use="required"/>
+    <xs:attribute name="pest" type="xs:string" use="required"/>
+    <xs:attribute name="technician" type="xs:string"/>
+  </xs:complexType>
+
+  <xs:element name="account">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="customer">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="firstName" type="xs:string"/>
+              <xs:element name="lastName" type="xs:string"/>
+              <xs:element name="mobile" type="Mobile"/>
+              <xs:element name="email" type="xs:string"/>
+              <xs:element name="address" type="xs:string"/>
+            </xs:sequence>
+            <xs:attribute name="id" type="xs:string" use="required"/>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="technicians">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="technician" maxOccurs="unbounded">
+                <xs:complexType>
+                  <xs:simpleContent>
+                    <xs:extension base="xs:string">
+                      <xs:attribute name="id" type="xs:string" use="required"/>
+                      <xs:attribute name="licence" type="xs:string" use="required"/>
+                    </xs:extension>
+                  </xs:simpleContent>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="bookings">
+          <xs:complexType><xs:sequence><xs:element name="booking" type="Booking" minOccurs="0" maxOccurs="unbounded"/></xs:sequence></xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+    <xs:unique name="uniqueRef"><xs:selector xpath="bookings/booking"/><xs:field xpath="@ref"/></xs:unique>
+  </xs:element>
+
+  <!-- the localStorage document for bookings made in the app -->
+  <xs:element name="localBookings">
+    <xs:complexType><xs:sequence><xs:element name="booking" type="Booking" minOccurs="0" maxOccurs="unbounded"/></xs:sequence></xs:complexType>
+  </xs:element>
+</xs:schema>

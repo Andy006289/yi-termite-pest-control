@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Structure of data/timeslots.xml: the weekly technician roster. -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified">
+
+  <xs:simpleType name="Time">
+    <xs:restriction base="xs:string"><xs:pattern value="([01][0-9]|2[0-3]):[0-5][0-9]"/></xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="Weekday">
+    <xs:restriction base="xs:nonNegativeInteger"><xs:maxInclusive value="6"/></xs:restriction>
+  </xs:simpleType>
+
+  <xs:element name="schedule">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="windows">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="window" maxOccurs="unbounded">
+                <xs:complexType>
+                  <xs:simpleContent>
+                    <xs:extension base="xs:string">
+                      <xs:attribute name="id" type="xs:ID" use="required"/>
+                      <xs:attribute name="start" type="Time" use="required"/>
+                      <xs:attribute name="end" type="Time" use="required"/>
+                      <xs:attribute name="capacity" type="xs:positiveInteger" use="required"/>
+                      <xs:attribute name="popular" type="xs:boolean" default="false"/>
+                    </xs:extension>
+                  </xs:simpleContent>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="weekdays">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="weekday" minOccurs="7" maxOccurs="7">
+                <xs:complexType>
+                  <xs:simpleContent>
+                    <xs:extension base="xs:string">
+                      <xs:attribute name="day" type="Weekday" use="required"/>
+                      <xs:attribute name="open" type="xs:boolean" use="required"/>
+                      <xs:attribute name="closesAt" type="Time"/>
+                    </xs:extension>
+                  </xs:simpleContent>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="demand">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="booked" minOccurs="0" maxOccurs="unbounded">
+                <xs:complexType>
+                  <xs:attribute name="day" type="Weekday" use="required"/>
+                  <xs:attribute name="window" type="xs:IDREF" use="required"/>
+                  <xs:attribute name="count" type="xs:positiveInteger" use="required"/>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+      <xs:attribute name="horizon" type="xs:positiveInteger" use="required"/>
+      <xs:attribute name="leadDays" type="xs:nonNegativeInteger" use="required"/>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  pricing.xml — the rules behind the indicative estimate.
+  Read by js/pricing.js. Validated against schema/pricing.xsd.
+
+  estimate range = base range for the pest
+                   × property factor
+                   + size adjustment + area adjustment + travel for the postcode zone
+  All amounts are AUD including GST. The technician confirms the final price on site.
+-->
+<pricing currency="AUD" gstIncluded="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="schema/pricing.xsd">
+
+  <!-- Base treatment for a standard residential job -->
+  <bases>
+    <base pest="cockroach" min="150" max="190" duration="60–90 min" label="Cockroach treatment"/>
+    <base pest="ant" min="140" max="180" duration="45–75 min" label="Ant treatment"/>
+    <base pest="spider" min="160" max="200" duration="45–60 min" label="Spider treatment"/>
+    <base pest="rodent" min="190" max="250" duration="60–90 min" label="Rodent control"/>
+    <base pest="termite" min="220" max="280" duration="90–120 min" label="Termite inspection"/>
+    <base pest="wasp" min="180" max="240" duration="30–60 min" label="Wasp nest removal"/>
+    <base pest="bedbug" min="260" max="340" duration="2 visits" label="Bed bug treatment"/>
+    <base pest="flea" min="170" max="210" duration="60 min" label="Flea treatment"/>
+  </bases>
+
+  <!-- Property type scales the base range (access and treatment area) -->
+  <properties>
+    <property id="house" icon="i-house" hint="detached" factor="1.00">House</property>
+    <property id="townhouse" icon="i-town" hint="or unit" factor="0.90">Townhouse</property>
+    <property id="apartment" icon="i-apt" hint="single level" factor="0.80">Apartment</property>
+  </properties>
+
+  <!-- Size is estimated from bedrooms; confirmed on the day -->
+  <sizes>
+    <size id="1" addMin="0" addMax="0">1 bed</size>
+    <size id="2" addMin="10" addMax="20">2 bed</size>
+    <size id="3" addMin="20" addMax="40">3 bed</size>
+    <size id="4" addMin="40" addMax="60">4 bed</size>
+    <size id="5" addMin="60" addMax="90">5+ bed</size>
+  </sizes>
+
+  <!-- Where the problem is -->
+  <areas>
+    <area id="inside" icon="i-inside" addMin="0" addMax="0">Inside only</area>
+    <area id="outside" icon="i-outside" addMin="0" addMax="10">Outside only</area>
+    <area id="both" icon="i-both" addMin="10" addMax="30">Inside &amp; outside</area>
+  </areas>
+
+  <!-- Service zones by Victorian postcode; postcodes outside every range are not serviced -->
+  <zones>
+    <zone id="1" label="Inner Melbourne" travel="0">
+      <postcodes from="3000" to="3099"/>
+    </zone>
+    <zone id="2" label="Middle suburbs" travel="20">
+      <postcodes from="3100" to="3207"/>
+    </zone>
+    <zone id="3" label="Outer suburbs" travel="40">
+      <postcodes from="3750" to="3810"/>
+      <postcodes from="3910" to="3977"/>
+    </zone>
+  </zones>
+
+</pricing>

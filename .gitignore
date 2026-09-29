@@ -1,0 +1,5 @@
+# macOS
+.DS_Store
+# large evidence screenshots from testing/run_tests.py (regenerate locally)
+testing/screenshots/
+__pycache__/
