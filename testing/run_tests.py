@@ -15,6 +15,7 @@ Usage (from the project folder):
     pip install playwright && python3 -m playwright install
     python3 testing/run_tests.py            # all three engines
     python3 testing/run_tests.py webkit     # one engine
+    YI_BASE=https://andy006289.github.io/yi-termite-pest-control/ python3 testing/run_tests.py   # the live site
 Writes testing/results.json, testing/results.md and evidence screenshots in testing/screenshots/.
 """
 import json, os, sys, http.server, socketserver, threading, functools, datetime
@@ -24,7 +25,8 @@ ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 OUT = os.path.join(ROOT, "testing")
 SHOTS = os.path.join(OUT, "screenshots")
 PORT = 8778
-BASE = f"http://127.0.0.1:{PORT}/"
+# set YI_BASE to test a deployed copy, e.g. YI_BASE=https://andy006289.github.io/yi-termite-pest-control/
+BASE = os.environ.get("YI_BASE", f"http://127.0.0.1:{PORT}/")
 
 PAGES = ["index", "identify", "estimate", "estimate-result", "booking", "booking-confirmed", "my-services"]
 VIEWPORTS = [("mobile", 390, 844), ("tablet", 768, 1024), ("laptop", 1024, 768), ("desktop", 1440, 900)]
@@ -285,7 +287,7 @@ def functional_tests(browser, engine, results):
 def summarise(results):
     L = results["layout"]; F = results["functional"]
     lines = [f"# Test results — YI Termite & Pest Control web application (Assessment 2)", "",
-             f"Run: {results['run']}  ", f"Engines: " + ", ".join(f"{k} {v}" for k, v in results["versions"].items()), ""]
+             f"Run: {results['run']}  ", f"Target: {BASE}  ", f"Engines: " + ", ".join(f"{k} {v}" for k, v in results["versions"].items()), ""]
     lines += ["## Layout checks (7 pages × 4 viewports × 3 engines)", "",
               "| Engine | Viewport | Pages with horizontal scroll | Min font (px) | Text below AA contrast | Targets < 24px | Targets 24–43px | Nav pattern | Pest grid columns | JS errors |",
               "|---|---|---|---|---|---|---|---|---|---|"]

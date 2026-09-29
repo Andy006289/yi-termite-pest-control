@@ -1,6 +1,7 @@
 # Test results — YI Termite & Pest Control web application (Assessment 2)
 
-Run: 2026-09-29 10:38  
+Run: 2026-09-29 10:48  
+Target: https://andy006289.github.io/yi-termite-pest-control/  
 Engines: chromium 148.0.7778.96, webkit 26.4, firefox 150.0.2
 
 ## Layout checks (7 pages × 4 viewports × 3 engines)

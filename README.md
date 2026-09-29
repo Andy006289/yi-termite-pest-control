@@ -4,7 +4,11 @@ ICT6400 Web and Mobile Application Development · Assessment 2 (Web Programming 
 
 A responsive website for Melbourne householders. It follows one journey: **identify a pest → get an estimate → book a technician → view the service report**. It implements the Assessment 1 wireframes, mockups and style guide using HTML5, CSS3 and JavaScript. All application data is kept in XML.
 
-## How to run it
+## Live site
+
+**<https://andy006289.github.io/yi-termite-pest-control/>** (GitHub Pages). Source: <https://github.com/Andy006289/yi-termite-pest-control>
+
+## How to run it locally
 
 The pages load their data from XML files with `fetch()`. Browsers block `fetch()` on pages opened straight from disk (`file://`), so the site must be served by a local web server:
 
@@ -88,7 +92,7 @@ pip install playwright && python3 -m playwright install chromium webkit firefox
 python3 testing/run_tests.py
 ```
 
-Results are written to `testing/results.md` and `testing/results.json`, and evidence screenshots to `testing/screenshots/`. The latest run passed 48 of 48 checks, with no horizontal scrolling, no text below AA contrast and no JavaScript errors.
+Results are written to `testing/results.md` and `testing/results.json`, and evidence screenshots to `testing/screenshots/`. The latest run, against the live GitHub Pages site, passed 48 of 48 checks, with no horizontal scrolling, no text below AA contrast and no JavaScript errors.
 
 ## Limitations
 
