@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Book a service · YI Termite &amp; Pest Control (Mockup)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/base.css">
+</head>
+<body class="hifi">
+
+<header class="site-header" data-note-m="Sticky compact header (64px). Navigation collapses into a hamburger menu so the logo and menu button both stay within thumb reach; the primary CTA moves inside the menu." data-note-t="At ≥768px the hamburger is replaced by the full horizontal navigation with tighter padding; the header CTA is held back until desktop so five items fit on one line." data-note-d="Full-width sticky header with all five navigation items and the amber Book Now CTA. Background is semi-transparent with blur so content context is kept while scrolling.">
+  <div class="container header-inner">
+    <a class="logo" href="home.html"><span class="logo-mark"><svg><use href="#i-bug"/></svg></span><span>YI Termite &amp; Pest Control<small>Melbourne</small></span></a>
+    <nav class="nav" aria-label="Main"><a href="home.html">Home</a><a href="identify.html">Pest Guide</a><a href="estimate.html">Get an Estimate</a><a href="booking.html" aria-current="page">Book a Service</a><a href="my-services.html">My Services</a></nav>
+    <a class="btn btn-accent btn-sm header-cta" href="booking.html">Book now</a>
+    <button class="menu-btn" aria-expanded="false" aria-controls="mobile-nav" aria-label="Open menu"><svg class="ico-menu"><use href="#i-menu"/></svg><svg class="ico-close"><use href="#i-close"/></svg></button>
+  </div>
+  <div class="mobile-nav" id="mobile-nav"><div class="container"><a href="home.html">Home<svg width="18" height="18"><use href="#i-chev"/></svg></a><a href="identify.html">Pest Guide<svg width="18" height="18"><use href="#i-chev"/></svg></a><a href="estimate.html">Get an Estimate<svg width="18" height="18"><use href="#i-chev"/></svg></a><a href="booking.html">Book a Service<svg width="18" height="18"><use href="#i-chev"/></svg></a><a href="my-services.html">My Services<svg width="18" height="18"><use href="#i-chev"/></svg></a><a class="btn btn-accent" href="booking.html">Book now</a></div></div>
+</header>
+
+<div class="container page-head">
+  <div class="breadcrumb"><a href="home.html">Home</a><span>/</span><span>Book a service</span></div>
+  <h1 style="font-size:clamp(1.7rem,4vw,2.5rem)">Book your technician</h1>
+  <p class="lead muted" style="max-width:600px">Pick a day and a 2-hour arrival window. You'll get an SMS confirmation and can reschedule free up to 24 hours before.</p>
+</div>
+
+<form class="container grid booking-layout" style="gap:24px;align-items:start" data-validate novalidate>
+  <div class="stack">
+    <div class="card" data-note-m="Date strip scrolls horizontally with 64px day tiles — a familiar mobile pattern that avoids a cramped month calendar." data-note-d="Date tiles widen to 72px and all nine days fit without scrolling.">
+      <h3>1 · Choose a day</h3>
+      <div class="dates" data-select data-out="day"><button class="date " data-value="Mon 14 Sep"><small>Mon</small>14</button><button class="date " data-value="Tue 15 Sep"><small>Tue</small>15</button><button class="date " data-value="Wed 16 Sep"><small>Wed</small>16</button><button class="date selected" data-value="Thu 17 Sep"><small>Thu</small>17</button><button class="date " data-value="Fri 18 Sep"><small>Fri</small>18</button><button class="date " data-value="Sat 19 Sep"><small>Sat</small>19</button><button class="date off" data-value="Sun 20 Sep"><small>Sun</small>20</button><button class="date " data-value="Mon 21 Sep"><small>Mon</small>21</button><button class="date " data-value="Tue 22 Sep"><small>Tue</small>22</button></div>
+      <h3 style="margin-top:24px">2 · Arrival window</h3>
+      <div class="slots" data-select data-out="slot" data-note-m="Time windows stack as full-width rows (52px min height)." data-note-t="Time windows form a 2-column grid." data-note-d="Time windows form a 3-column grid.">
+        <button type="button" class="slot" data-value="7–9am"><span>7 – 9am</span><span class="badge badge-amber">1 left</span></button>
+        <button type="button" class="slot selected" data-value="9–11am"><span>9 – 11am</span><span class="badge">Popular</span></button>
+        <button type="button" class="slot" data-value="11am–1pm"><span>11am – 1pm</span></button>
+        <button type="button" class="slot" data-value="1–3pm"><span>1 – 3pm</span></button>
+        <button type="button" class="slot" data-value="3–5pm"><span>3 – 5pm</span></button>
+        <button type="button" class="slot off" disabled><span>5 – 7pm</span><span class="badge badge-grey">Full</span></button>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3>3 · Your details</h3>
+      <div class="form-grid" data-note-m="All fields are single-column and 48px tall. Labels sit above inputs (never placeholder-only) so they stay visible once typing starts." data-note-t="Form switches to a 2-column grid; address and notes span both columns." data-note-d="Two-column form grid with full-width address row.">
+        <div class="field" data-required><label for="fn">First name</label><input class="input" id="fn" autocomplete="given-name" placeholder="Priya"><span class="error-msg"><svg style="width:14px;height:14px"><use href="#i-warn"/></svg> Please enter your first name</span></div>
+        <div class="field" data-required><label for="ln">Last name</label><input class="input" id="ln" autocomplete="family-name" placeholder="Nair"><span class="error-msg"><svg style="width:14px;height:14px"><use href="#i-warn"/></svg> Please enter your last name</span></div>
+        <div class="field" data-required><label for="ph">Mobile</label><input class="input" id="ph" type="tel" inputmode="tel" autocomplete="tel" placeholder="04xx xxx xxx"><span class="hint">For SMS confirmation and technician updates</span><span class="error-msg"><svg style="width:14px;height:14px"><use href="#i-warn"/></svg> Enter an Australian mobile number</span></div>
+        <div class="field"><label for="em">Email <span class="muted" style="font-weight:400">(optional)</span></label><input class="input" id="em" type="email" inputmode="email" autocomplete="email" placeholder="you@example.com"></div>
+        <div class="field span-2" data-required><label for="ad">Property address</label><input class="input" id="ad" autocomplete="street-address" placeholder="Start typing your address…" value="12 Sydney Rd, Brunswick VIC 3056"><span class="error-msg"><svg style="width:14px;height:14px"><use href="#i-warn"/></svg> We need the property address</span></div>
+        <div class="field"><label for="acc">Access</label><select class="select" id="acc"><option>I'll be home</option><option>Key with agent / neighbour</option><option>Lockbox — I'll share the code</option></select></div>
+        <div class="field"><label>Pets or children at home?</label><div class="pills" data-select><button type="button" class="pill selected">Yes</button><button type="button" class="pill">No</button></div></div>
+        <div class="field span-2"><label for="nt">Notes for the technician</label><textarea class="textarea" id="nt" placeholder="e.g. side gate is unlocked, dog is friendly"></textarea></div>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3>4 · Confirm</h3>
+      <label class="check"><input type="checkbox" checked> Send me SMS updates about my booking</label>
+      <label class="check" style="margin-top:10px"><input type="checkbox"> I understand the estimate is indicative and the final price is confirmed on site before any work starts</label>
+      <div class="notice notice-blue" style="margin-top:16px"><svg><use href="#i-info"/></svg><span>No payment now. You pay the technician after the job by card or bank transfer.</span></div>
+      <button class="btn btn-primary btn-block" style="margin-top:20px" type="submit" data-note="Single, clearly labelled submit button with the price range repeated so the user confirms with full context. Client-side validation highlights missing required fields inline before the request is sent to the server.">Confirm booking · $180–$260 <svg><use href="#i-arrow"/></svg></button>
+    </div>
+  </div>
+
+  <aside class="card summary" data-note-m="Booking summary sits below the form on mobile and repeats the key choices; the confirm button in the form is the primary action." data-note-d="Sticky 340px summary keeps pest, estimate, date and window visible while the user completes the form.">
+    <div class="eyebrow">Booking summary</div>
+    <div class="result-hero"><div class="pest-visual" data-label="Pest"><svg><use href="#p-cockroach"/></svg></div><div><h3 style="margin:0 0 4px">Cockroach treatment</h3><span class="small muted">3-bed house · inside &amp; outside</span></div></div>
+    <dl style="margin-top:16px"><dt>Day</dt><dd data-bind="day">Thu 17 Sep</dd><dt>Window</dt><dd data-bind="slot">9–11am</dd><dt>Address</dt><dd>Brunswick 3056</dd><dt>Estimate</dt><dd>$180 – $260</dd></dl>
+    <div class="divider"></div>
+    <ul class="timeline">
+      <li><span class="tdot done"><svg><use href="#i-check"/></svg></span><div class="small"><b>Estimate</b><div class="muted">EST-48211</div></div></li>
+      <li><span class="tdot now"></span><div class="small"><b>Booking request</b><div class="muted">You're here</div></div></li>
+      <li><span class="tdot"></span><div class="small"><b>Technician confirmed</b><div class="muted">Usually within 1 hour</div></div></li>
+      <li><span class="tdot"></span><div class="small"><b>Service &amp; report</b></div></li>
+    </ul>
+    <a class="small" href="estimate.html" style="color:var(--green-700);font-weight:600">Edit estimate answers</a>
+  </aside>
+</form>
+
+<footer class="site-footer" data-note-m="Footer columns stack into a single column; link lists remain full-width tap targets." data-note-t="Footer becomes a 4-column grid (brand column wider) at ≥768px." data-note-d="Four-column footer grid: brand summary + three link groups.">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <a class="logo" href="home.html"><span class="logo-mark"><svg><use href="#i-bug"/></svg></span><span>YI Termite &amp; Pest Control<small>Melbourne</small></span></a>
+        <p class="small" style="margin-top:12px;max-width:340px;opacity:.85">Identify the pest, get an upfront estimate and book a licensed technician — all from your phone.</p>
+      </div>
+      <div><h4>Services</h4><ul><li><a href="#">Cockroaches</a></li><li><a href="#">Ants</a></li><li><a href="#">Spiders</a></li><li><a href="#">Rodents</a></li><li><a href="#">Termite inspection</a></li></ul></div>
+      <div><h4>Company</h4><ul><li><a href="#">About</a></li><li><a href="#">Service areas</a></li><li><a href="#">Licences &amp; insurance</a></li><li><a href="#">Contact</a></li></ul></div>
+      <div><h4>Help</h4><ul><li><a href="#">Pricing guide</a></li><li><a href="#">FAQs</a></li><li><a href="#">Privacy</a></li><li><a href="#">Terms</a></li></ul></div>
+    </div>
+    <div class="footer-bottom"><span>© 2026 YI Termite &amp; Pest Control · ICT6400 design concept</span><span>Licensed pest management technicians · VIC</span></div>
+  </div>
+</footer>
+<script src="../assets/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,45 @@
+{
+  "expo": {
+    "name": "YI Pest Control",
+    "slug": "yi-pest-control",
+    "scheme": "yipest",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/icon.png",
+    "userInterfaceStyle": "light",
+    "ios": {
+      "bundleIdentifier": "com.yitermite.pestcontrol",
+      "supportsTablet": false,
+      "infoPlist": {
+        "NSAppTransportSecurity": {
+          "NSAllowsArbitraryLoads": false
+        },
+        "ITSAppUsesNonExemptEncryption": false
+      }
+    },
+    "web": {
+      "bundler": "metro",
+      "favicon": "./assets/favicon.png"
+    },
+    "plugins": [
+      "expo-router",
+      "expo-sharing",
+      "expo-font",
+      [
+        "expo-splash-screen",
+        {
+          "image": "./assets/splash-icon.png",
+          "imageWidth": 160,
+          "backgroundColor": "#1F6B45"
+        }
+      ],
+      [
+        "expo-image-picker",
+        {
+          "photosPermission": "Allow YI Pest Control to attach photos of the pest to your estimate.",
+          "cameraPermission": "Allow YI Pest Control to take a photo of the pest for your estimate."
+        }
+      ]
+    ]
+  }
+}

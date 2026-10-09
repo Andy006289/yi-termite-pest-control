@@ -4,6 +4,16 @@ ICT6400 Web and Mobile Application Development · Assessment 2 (Web Programming 
 
 A responsive website for Melbourne householders. It follows one journey: **identify a pest → get an estimate → book a technician → view the service report**. It implements the Assessment 1 wireframes, mockups and style guide using HTML5, CSS3 and JavaScript. All application data is kept in XML.
 
+## Repository contents
+
+This repository holds all three ICT6400 assessments for YI Termite & Pest Control:
+
+| Assessment | Folder | What it is |
+|---|---|---|
+| 1 — Responsive design | [`design/`](design/) | Wireframes, high-fidelity mockups, style guide, screenshots and accessibility test results ([online](https://andy006289.github.io/yi-termite-pest-control/design/)) |
+| 2 — Web application | repository root | The XML-driven website described below (stays at the root so GitHub Pages serves it) |
+| 3 — Mobile application | [`ios-app/`](ios-app/) | Expo / React Native iOS app that loads this site's XML data over HTTPS — see [`ios-app/README.md`](ios-app/README.md) |
+
 ## Live site
 
 **<https://andy006289.github.io/yi-termite-pest-control/>** (GitHub Pages). Source: <https://github.com/Andy006289/yi-termite-pest-control>

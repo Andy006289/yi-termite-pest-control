@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  bookings.xml — the sample customer account shown in My Services.
+  Read by js/store.js. Validated against schema/bookings.xsd.
+
+  New bookings made in the app are written as <booking> elements with the same
+  structure and kept in the browser (localStorage) as serialised XML, then merged
+  with this file when My Services loads.
+
+  Upcoming bookings use daysFromToday so the demo data never goes out of date;
+  completed bookings have fixed dates and a <report>.
+-->
+<account xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="schema/bookings.xsd">
+
+  <customer id="C1001">
+    <firstName>Priya</firstName>
+    <lastName>Nair</lastName>
+    <mobile>0412 345 678</mobile>
+    <email>priya.nair@example.com</email>
+    <address>12 Sydney Rd, Brunswick VIC 3056</address>
+  </customer>
+
+  <technicians>
+    <technician id="T01" licence="12345">Marcus T.</technician>
+    <technician id="T02" licence="23871">Aisha K.</technician>
+  </technicians>
+
+  <bookings>
+
+    <booking ref="YI-10394" status="confirmed" pest="cockroach" technician="T01">
+      <created>2026-09-15T22:02:00+10:00</created>
+      <visit daysFromToday="2" window="w09"/>
+      <property type="house" size="3" area="both">12 Sydney Rd, Brunswick VIC 3056</property>
+      <estimate min="180" max="260"/>
+      <contact firstName="Priya" lastName="Nair" mobile="0412 345 678"/>
+      <notes>Mostly under the dishwasher, worse at night.</notes>
+    </booking>
+
+    <booking ref="YI-10212" status="completed" pest="ant" technician="T01">
+      <created>2026-03-18T19:40:00+11:00</created>
+      <visit date="2026-03-21" window="w09"/>
+      <property type="house" size="3" area="outside">12 Sydney Rd, Brunswick VIC 3056</property>
+      <estimate min="140" max="190"/>
+      <price>165</price>
+      <contact firstName="Priya" lastName="Nair" mobile="0412 345 678"/>
+      <report>
+        <title>Ant treatment — exterior</title>
+        <findings>Black house ant trails along the rear paving and into the kitchen through a gap under the sliding door. Nest located under the east side path.</findings>
+        <treatment>Non-repellent perimeter spray and granular bait at the nest entry and along paving joints. Low-toxicity product (pets and children).</treatment>
+        <areas>
+          <area>Rear paving</area>
+          <area>East side path</area>
+          <area>Kitchen skirting</area>
+          <area>Sliding door track</area>
+        </areas>
+        <recommendation nextInspection="2026-09">Seal the gap under the sliding door. Re-inspect in spring; a follow-up perimeter treatment is recommended in September 2026.</recommendation>
+        <warranty until="2026-06-21">If ants return inside this period, book a free re-treat.</warranty>
+      </report>
+    </booking>
+
+    <booking ref="YI-09876" status="completed" pest="spider" technician="T02">
+      <created>2025-11-02T08:15:00+11:00</created>
+      <visit date="2025-11-06" window="w13"/>
+      <property type="house" size="3" area="outside">12 Sydney Rd, Brunswick VIC 3056</property>
+      <estimate min="170" max="220"/>
+      <price>180</price>
+      <contact firstName="Priya" lastName="Nair" mobile="0412 345 678"/>
+      <report>
+        <title>Spider spray — eaves &amp; windows</title>
+        <findings>Heavy black house spider webbing under the front and rear eaves and around three window frames. Two redbacks found in the garden shed.</findings>
+        <treatment>Webs removed, residual spray applied to eaves, window frames and the shed interior.</treatment>
+        <areas>
+          <area>Front eaves</area>
+          <area>Rear eaves</area>
+          <area>Window frames</area>
+          <area>Garden shed</area>
+        </areas>
+        <recommendation nextInspection="2026-11">Keep the shed door closed and clear leaf litter from the fence line. Annual spray recommended before summer.</recommendation>
+        <warranty until="2026-05-06">If webbing returns on treated surfaces, book a free re-treat.</warranty>
+      </report>
+    </booking>
+
+  </bookings>
+</account>

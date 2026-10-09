@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  timeslots.xml — the weekly technician roster.
+  Read by js/schedule.js. Validated against schema/timeslots.xsd.
+
+  The booking page shows the next <horizon> days, starting <leadDays> after today.
+  Each arrival window has a capacity (technicians available). <demand> records
+  jobs already booked by other customers on a weekday, so some windows show
+  "1 left" or "Full". Bookings made in the app are subtracted as well.
+-->
+<schedule horizon="9" leadDays="1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="schema/timeslots.xsd">
+
+  <windows>
+    <window id="w07" start="07:00" end="09:00" capacity="2">7 – 9am</window>
+    <window id="w09" start="09:00" end="11:00" capacity="3" popular="true">9 – 11am</window>
+    <window id="w11" start="11:00" end="13:00" capacity="3">11am – 1pm</window>
+    <window id="w13" start="13:00" end="15:00" capacity="3">1 – 3pm</window>
+    <window id="w15" start="15:00" end="17:00" capacity="2">3 – 5pm</window>
+    <window id="w17" start="17:00" end="19:00" capacity="1">5 – 7pm</window>
+  </windows>
+
+  <!-- 0 = Sunday … 6 = Saturday -->
+  <weekdays>
+    <weekday day="0" open="false">Sun</weekday>
+    <weekday day="1" open="true">Mon</weekday>
+    <weekday day="2" open="true">Tue</weekday>
+    <weekday day="3" open="true">Wed</weekday>
+    <weekday day="4" open="true">Thu</weekday>
+    <weekday day="5" open="true">Fri</weekday>
+    <weekday day="6" open="true" closesAt="13:00">Sat</weekday>
+  </weekdays>
+
+  <!-- Existing bookings from other customers (sample demand) -->
+  <demand>
+    <booked day="1" window="w07" count="1"/>
+    <booked day="1" window="w17" count="1"/>
+    <booked day="2" window="w09" count="2"/>
+    <booked day="3" window="w13" count="3"/>
+    <booked day="4" window="w07" count="1"/>
+    <booked day="4" window="w17" count="1"/>
+    <booked day="5" window="w09" count="3"/>
+    <booked day="5" window="w15" count="1"/>
+    <booked day="6" window="w07" count="2"/>
+  </demand>
+
+</schedule>

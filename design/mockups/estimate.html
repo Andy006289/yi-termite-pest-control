@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Get an estimate · YI Termite &amp; Pest Control (Mockup)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/base.css">
+</head>
+<body class="hifi">
+
+<header class="site-header" data-note-m="Sticky compact header (64px). Navigation collapses into a hamburger menu so the logo and menu button both stay within thumb reach; the primary CTA moves inside the menu." data-note-t="At ≥768px the hamburger is replaced by the full horizontal navigation with tighter padding; the header CTA is held back until desktop so five items fit on one line." data-note-d="Full-width sticky header with all five navigation items and the amber Book Now CTA. Background is semi-transparent with blur so content context is kept while scrolling.">
+  <div class="container header-inner">
+    <a class="logo" href="home.html"><span class="logo-mark"><svg><use href="#i-bug"/></svg></span><span>YI Termite &amp; Pest Control<small>Melbourne</small></span></a>
+    <nav class="nav" aria-label="Main"><a href="home.html">Home</a><a href="identify.html">Pest Guide</a><a href="estimate.html" aria-current="page">Get an Estimate</a><a href="booking.html">Book a Service</a><a href="my-services.html">My Services</a></nav>
+    <a class="btn btn-accent btn-sm header-cta" href="booking.html">Book now</a>
+    <button class="menu-btn" aria-expanded="false" aria-controls="mobile-nav" aria-label="Open menu"><svg class="ico-menu"><use href="#i-menu"/></svg><svg class="ico-close"><use href="#i-close"/></svg></button>
+  </div>
+  <div class="mobile-nav" id="mobile-nav"><div class="container"><a href="home.html">Home<svg width="18" height="18"><use href="#i-chev"/></svg></a><a href="identify.html">Pest Guide<svg width="18" height="18"><use href="#i-chev"/></svg></a><a href="estimate.html">Get an Estimate<svg width="18" height="18"><use href="#i-chev"/></svg></a><a href="booking.html">Book a Service<svg width="18" height="18"><use href="#i-chev"/></svg></a><a href="my-services.html">My Services<svg width="18" height="18"><use href="#i-chev"/></svg></a><a class="btn btn-accent" href="booking.html">Book now</a></div></div>
+</header>
+
+<div class="container page-head">
+  <div class="breadcrumb"><a href="home.html">Home</a><span>/</span><span>Get an estimate</span></div>
+  <h1 style="font-size:clamp(1.7rem,4vw,2.5rem)">Get an instant estimate</h1>
+  <p class="lead muted" style="max-width:600px">Five quick questions. We'll show a realistic price range and what can change it — no contact details required.</p>
+</div>
+
+<div class="container wizard-layout" data-wizard>
+  <ol class="wizard-steps" data-note-d="Desktop shows a vertical step list (220px column) so users can see the whole journey and their position in it.">
+    <li><span class="n">1</span>Pest</li><li><span class="n">2</span>Property</li><li><span class="n">3</span>Size</li><li><span class="n">4</span>Area</li><li><span class="n">5</span>Estimate</li>
+  </ol>
+
+  <div class="card" data-note-m="Wizard is one question per screen. A slim segmented progress bar replaces the step list to save vertical space; the Continue button is full-width and pinned under the content." data-note-t="Same linear flow; option tiles show 3 per row. Actions right-align." data-note-d="Question card in the centre column; option tiles show 4 per row. The task sequence stays linear at every breakpoint — only the surrounding chrome changes.">
+    <div class="progress" aria-hidden="true"><span class="seg"></span><span class="seg"></span><span class="seg"></span><span class="seg"></span><span class="seg"></span></div>
+    <div class="row between" style="margin-bottom:16px"><span class="badge" data-step-label>Step 1 of 5</span><span class="tiny muted">About 1 minute</span></div>
+
+    <section class="wstep active">
+      <h2 style="font-size:1.4rem">What pest do you need help with?</h2>
+      <p class="muted small">Pick the closest match. Not sure? <a href="identify.html" style="color:var(--green-700);font-weight:600">Identify it first</a>.</p>
+      <div class="choices" data-select data-out="pest">
+        <button class="choice selected" data-value="Cockroaches"><svg><use href="#p-cockroach"/></svg>Cockroaches</button>
+        <button class="choice" data-value="Ants"><svg><use href="#p-ant"/></svg>Ants</button>
+        <button class="choice" data-value="Spiders"><svg><use href="#p-spider"/></svg>Spiders</button>
+        <button class="choice" data-value="Rodents"><svg><use href="#p-rodent"/></svg>Rats &amp; mice</button>
+        <button class="choice" data-value="Termites"><svg><use href="#p-termite"/></svg>Termites<small>inspection</small></button>
+        <button class="choice" data-value="Wasps"><svg><use href="#p-wasp"/></svg>Wasps &amp; bees</button>
+        <button class="choice" data-value="Bed bugs"><svg><use href="#p-bedbug"/></svg>Bed bugs</button>
+        <button class="choice" data-value="Fleas"><svg><use href="#p-flea"/></svg>Fleas</button>
+      </div>
+    </section>
+
+    <section class="wstep">
+      <h2 style="font-size:1.4rem">What type of property is it?</h2>
+      <p class="muted small">This affects access, treatment area and how long the visit takes.</p>
+      <div class="choices cols-3" data-select data-out="property">
+        <button class="choice selected" data-value="House"><svg><use href="#i-house"/></svg>House<small>detached</small></button>
+        <button class="choice" data-value="Townhouse"><svg><use href="#i-town"/></svg>Townhouse<small>or unit</small></button>
+        <button class="choice" data-value="Apartment"><svg><use href="#i-apt"/></svg>Apartment<small>single level</small></button>
+      </div>
+    </section>
+
+    <section class="wstep">
+      <h2 style="font-size:1.4rem">How big is the property?</h2>
+      <p class="muted small">Bedrooms is a good proxy — we'll confirm on the day.</p>
+      <div class="pills" data-select data-out="size">
+        <button class="pill">1 bed</button><button class="pill">2 bed</button><button class="pill selected">3 bed</button><button class="pill">4 bed</button><button class="pill">5+ bed</button>
+      </div>
+      <div class="field" style="margin-top:20px"><label for="postcode">Suburb or postcode</label><input class="input" id="postcode" placeholder="e.g. 3056 Brunswick" value="3056"><span class="hint">Used to check we service your area and travel time.</span></div>
+    </section>
+
+    <section class="wstep">
+      <h2 style="font-size:1.4rem">Where is the problem?</h2>
+      <p class="muted small">Interior-only treatments are quicker; exterior barrier sprays take longer.</p>
+      <div class="choices cols-3" data-select data-out="area">
+        <button class="choice" data-value="Inside only"><svg><use href="#i-inside"/></svg>Inside only</button>
+        <button class="choice" data-value="Outside only"><svg><use href="#i-outside"/></svg>Outside only</button>
+        <button class="choice selected" data-value="Inside &amp; outside"><svg><use href="#i-both"/></svg>Both</button>
+      </div>
+      <label class="check" style="margin-top:20px"><input type="checkbox"> There are pets or young children in the home (we'll use low-toxicity products)</label>
+    </section>
+
+    <section class="wstep">
+      <h2 style="font-size:1.4rem">Anything else we should know?</h2>
+      <p class="muted small">Optional. Photos help us confirm the pest and prepare the right treatment.</p>
+      <div class="upload" data-note="Photo upload is optional and placed last so it never blocks the estimate. On mobile it opens the camera directly."><svg><use href="#i-camera"/></svg><b>Add photos</b><div class="small muted">Tap to take a photo or choose from library</div></div>
+      <div class="field" style="margin-top:16px"><label for="notes">Notes</label><textarea class="textarea" id="notes" placeholder="e.g. mostly under the dishwasher, worse at night"></textarea></div>
+    </section>
+
+    <div class="wizard-actions">
+      <button class="btn btn-outline" data-prev><svg><use href="#i-back"/></svg> Back</button>
+      <button class="btn btn-primary" data-next>Continue <svg><use href="#i-arrow"/></svg></button>
+    </div>
+  </div>
+
+  <aside class="card summary" data-note-m="Running summary is hidden behind the flow on mobile and appears at the bottom; the price range is only revealed on the final step to avoid anchoring on an incomplete estimate." data-note-d="Sticky 300px summary column shows selected answers as they're made and a placeholder for the price range until the final step.">
+    <div class="eyebrow">Your answers</div>
+    <dl><dt>Pest</dt><dd data-bind="pest">Cockroaches</dd><dt>Property</dt><dd data-bind="property">House</dd><dt>Size</dt><dd data-bind="size">3 bed</dd><dt>Area</dt><dd data-bind="area">Inside &amp; outside</dd></dl>
+    <div class="divider"></div>
+    <div class="tiny muted">Indicative range</div>
+    <div class="price-range" style="filter:blur(6px);opacity:.5">$180 – $260</div>
+    <div class="small muted" style="margin-top:8px">Revealed on the last step</div>
+    <div class="notice" style="margin-top:16px"><svg><use href="#i-info"/></svg><span>Final price is confirmed by the technician after inspection. No payment is taken online.</span></div>
+  </aside>
+</div>
+
+<footer class="site-footer" data-note-m="Footer columns stack into a single column; link lists remain full-width tap targets." data-note-t="Footer becomes a 4-column grid (brand column wider) at ≥768px." data-note-d="Four-column footer grid: brand summary + three link groups.">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <a class="logo" href="home.html"><span class="logo-mark"><svg><use href="#i-bug"/></svg></span><span>YI Termite &amp; Pest Control<small>Melbourne</small></span></a>
+        <p class="small" style="margin-top:12px;max-width:340px;opacity:.85">Identify the pest, get an upfront estimate and book a licensed technician — all from your phone.</p>
+      </div>
+      <div><h4>Services</h4><ul><li><a href="#">Cockroaches</a></li><li><a href="#">Ants</a></li><li><a href="#">Spiders</a></li><li><a href="#">Rodents</a></li><li><a href="#">Termite inspection</a></li></ul></div>
+      <div><h4>Company</h4><ul><li><a href="#">About</a></li><li><a href="#">Service areas</a></li><li><a href="#">Licences &amp; insurance</a></li><li><a href="#">Contact</a></li></ul></div>
+      <div><h4>Help</h4><ul><li><a href="#">Pricing guide</a></li><li><a href="#">FAQs</a></li><li><a href="#">Privacy</a></li><li><a href="#">Terms</a></li></ul></div>
+    </div>
+    <div class="footer-bottom"><span>© 2026 YI Termite &amp; Pest Control · ICT6400 design concept</span><span>Licensed pest management technicians · VIC</span></div>
+  </div>
+</footer>
+<script src="../assets/app.js"></script>
+</body>
+</html>

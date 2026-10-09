@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>YI Termite &amp; Pest Control Design Files · ICT6400 A1</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/base.css">
+<style>
+  .idx { display: grid; gap: 16px; }
+  .idx-row { display: grid; grid-template-columns: 1fr; gap: 10px; align-items: center; }
+  .idx-row .links { display: flex; flex-wrap: wrap; gap: 8px; }
+  .idx-row .links a { padding: 8px 12px; border-radius: 8px; border: 1px solid var(--line); background: var(--surface); font-size: .85rem; font-weight: 500; }
+  .idx-row .links a:hover { border-color: var(--green-700); color: var(--green-700); }
+  @media (min-width: 768px) { .idx-row { grid-template-columns: 220px 1fr; } }
+</style>
+</head>
+<body class="hifi">
+<div class="container page-head">
+  <div class="eyebrow">ICT6400 · Assessment 1 · Design deliverables</div>
+  <h1 style="font-size:clamp(1.8rem,4vw,2.6rem)">YI Termite &amp; Pest Control — design files</h1>
+  <p class="lead muted" style="max-width:680px">Every page below is one responsive HTML file. Resize the browser (or use DevTools device mode at 390 / 768 / 1440px) to see the mobile, tablet and desktop layouts. The floating toolbar toggles the wireframe / hi-fi skin and the design annotations. Press <b>H</b> to hide the toolbar before capturing.</p>
+  <div class="row"><a class="btn btn-primary" href="style-guide.html">Style guide</a><a class="btn btn-outline" href="mockups/home.html?annotate=1">Home mockup with annotations</a></div>
+</div>
+<div class="container idx">
+  <div class="card idx-row"><div><b>Home</b><div class="small muted">Hero, how it works, pest grid, stats, CTA</div></div><div class="links"><a href="mockups/home.html">Hi-fi</a><a href="wireframes/home.html">Wireframe</a><a href="mockups/home.html?annotate=1">Annotated</a><a href="mockups/home.html?menu=open">Mobile menu open</a></div></div>
+  <div class="card idx-row"><div><b>Identify a pest</b><div class="small muted">3-question quiz with live result panel</div></div><div class="links"><a href="mockups/identify.html">Hi-fi</a><a href="wireframes/identify.html">Wireframe</a><a href="mockups/identify.html?annotate=1">Annotated</a></div></div>
+  <div class="card idx-row"><div><b>Get an estimate (wizard)</b><div class="small muted">5-step wizard, running summary</div></div><div class="links"><a href="mockups/estimate.html">Hi-fi</a><a href="wireframes/estimate.html">Wireframe</a><a href="mockups/estimate.html?annotate=1">Annotated</a><a href="mockups/estimate.html?step=3">Step 3</a><a href="mockups/estimate.html?step=5">Step 5</a></div></div>
+  <div class="card idx-row"><div><b>Estimate result</b><div class="small muted">Price range, breakdown, next slots</div></div><div class="links"><a href="mockups/estimate-result.html">Hi-fi</a><a href="wireframes/estimate-result.html">Wireframe</a><a href="mockups/estimate-result.html?annotate=1">Annotated</a></div></div>
+  <div class="card idx-row"><div><b>Book a service</b><div class="small muted">Date strip, time windows, details form, summary</div></div><div class="links"><a href="mockups/booking.html">Hi-fi</a><a href="wireframes/booking.html">Wireframe</a><a href="mockups/booking.html?annotate=1">Annotated</a><a href="mockups/booking.html?errors=1">Validation errors</a></div></div>
+  <div class="card idx-row"><div><b>Booking confirmed</b><div class="small muted">Confirmation and prep checklist</div></div><div class="links"><a href="mockups/booking-confirmed.html">Hi-fi</a><a href="wireframes/booking-confirmed.html">Wireframe</a><a href="mockups/booking-confirmed.html?annotate=1">Annotated</a></div></div>
+  <div class="card idx-row"><div><b>My Services</b><div class="small muted">Upcoming booking, history, service report</div></div><div class="links"><a href="mockups/my-services.html">Hi-fi</a><a href="wireframes/my-services.html">Wireframe</a><a href="mockups/my-services.html?annotate=1">Annotated</a></div></div>
+</div>
+<div class="container" style="margin-top:32px"><div class="panel small"><b>URL switches</b> — <code>?mode=wire</code> / <code>?mode=hifi</code> force a skin · <code>?annotate=1</code> shows numbered annotations · <code>?clean=1</code> hides the toolbar · <code>?legend=top</code> pins the annotation legend to the top for full-page captures · <code>?step=N</code> opens a wizard step · <code>?menu=open</code> opens the mobile menu · <code>?errors=1</code> shows validation states.</div></div>
+<script src="assets/app.js"></script>
+</body>
+</html>

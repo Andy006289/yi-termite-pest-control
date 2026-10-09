@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Style Guide · YI Termite &amp; Pest Control</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/base.css">
+<style>
+  .sg-section { padding-block: 40px; border-bottom: 1px solid var(--line); }
+  .swatches { display: grid; gap: 16px; grid-template-columns: repeat(2, 1fr); }
+  .swatch { border-radius: 14px; overflow: hidden; border: 1px solid var(--line); background: var(--surface); }
+  .swatch .chip { height: 88px; }
+  .swatch .info { padding: 12px 14px; font-size: .85rem; }
+  .swatch .info b { display: block; font-family: var(--font-head); }
+  .swatch .info code { color: var(--ink-3); font-size: .8rem; }
+  .type-row { display: grid; grid-template-columns: 1fr; gap: 8px; padding: 14px 0; border-bottom: 1px dashed var(--line); align-items: baseline; }
+  .type-row .spec { font-size: .8rem; color: var(--ink-3); font-family: ui-monospace, Menlo, monospace; }
+  .space-row { display: flex; align-items: flex-end; gap: 16px; flex-wrap: wrap; }
+  .space-box { background: var(--green-100); border: 1px solid var(--green-500); display: grid; place-items: end center; font-size: .7rem; color: var(--green-900); }
+  .bp-table td:first-child { font-weight: 600; }
+  .comp-grid { display: grid; gap: 24px; grid-template-columns: 1fr; }
+  .sg-toc { display: flex; flex-wrap: wrap; gap: 8px; }
+  .sg-toc a { padding: 8px 14px; border-radius: 999px; background: var(--surface); border: 1px solid var(--line); font-size: .85rem; font-weight: 500; }
+  @media (min-width: 768px) { .swatches { grid-template-columns: repeat(4, 1fr); } .type-row { grid-template-columns: 1fr 260px; } .comp-grid { grid-template-columns: 1fr 1fr; } }
+  @media (min-width: 1024px) { .swatches { grid-template-columns: repeat(5, 1fr); } .comp-grid { grid-template-columns: 1fr 1fr 1fr; } }
+</style>
+</head>
+<body class="hifi">
+<header class="site-header"><div class="container header-inner">
+  <a class="logo" href="index.html"><span class="logo-mark"><svg><use href="#i-bug"/></svg></span><span>YI Termite &amp; Pest Control<small>Style guide</small></span></a>
+  <nav class="nav" aria-label="Main"><a href="index.html">Index</a><a href="mockups/home.html">Mockups</a><a href="wireframes/home.html">Wireframes</a></nav>
+</div></header>
+
+<div class="container page-head">
+  <div class="eyebrow">Design system · v1.0</div>
+  <h1 style="font-size:clamp(1.8rem,4vw,2.6rem)">YI Termite &amp; Pest Control style guide</h1>
+  <p class="lead muted" style="max-width:640px">Colour, typography, spacing, breakpoints and core components used across the wireframes and high-fidelity mockups. Built mobile-first; tokens are CSS custom properties in <code>assets/base.css</code>.</p>
+  <div class="sg-toc"><a href="#colour">Colour</a><a href="#type">Typography</a><a href="#spacing">Spacing &amp; radius</a><a href="#breakpoints">Breakpoints</a><a href="#components">Components</a><a href="#icons">Iconography</a><a href="#a11y">Accessibility</a></div>
+</div>
+
+<div class="container">
+<section class="sg-section" id="colour">
+  <h2>1. Colour palette</h2>
+  <p class="muted">Deep green anchors the brand (health, environment, trust). Amber is reserved for calls-to-action and status highlights so it stays visually rare. Neutrals are slightly warm to keep the off-white ground from feeling clinical.</p>
+  <h3 style="margin-top:24px">Brand</h3>
+  <div class="swatches">
+    <div class="swatch"><div class="chip" style="background:#0F3D28"></div><div class="info"><b>Green 900</b><code>#0F3D28</code><div class="tiny muted">Headings, footer, dark panels</div></div></div>
+    <div class="swatch"><div class="chip" style="background:#1F6B45"></div><div class="info"><b>Green 700 · Primary</b><code>#1F6B45</code><div class="tiny muted">Primary buttons, links, active states</div></div></div>
+    <div class="swatch"><div class="chip" style="background:#237A4F"></div><div class="info"><b>Green 500</b><code>#237A4F</code><div class="tiny muted">Icons, eyebrow labels, progress (5.0:1)</div></div></div>
+    <div class="swatch"><div class="chip" style="background:#DFEFE5"></div><div class="info"><b>Green 100</b><code>#DFEFE5</code><div class="tiny muted">Badges, icon tiles, focus rings</div></div></div>
+    <div class="swatch"><div class="chip" style="background:#F0F7F2"></div><div class="info"><b>Green 50</b><code>#F0F7F2</code><div class="tiny muted">Selected tiles, soft panels</div></div></div>
+  </div>
+  <h3 style="margin-top:24px">Accent</h3>
+  <div class="swatches">
+    <div class="swatch"><div class="chip" style="background:#F4A340"></div><div class="info"><b>Amber 500 · Accent</b><code>#F4A340</code><div class="tiny muted">Book Now CTA, current step, highlights</div></div></div>
+    <div class="swatch"><div class="chip" style="background:#DD8A1E"></div><div class="info"><b>Amber 600</b><code>#DD8A1E</code><div class="tiny muted">Accent hover (not for text)</div></div></div>
+    <div class="swatch"><div class="chip" style="background:#94580A"></div><div class="info"><b>Amber 700</b><code>#94580A</code><div class="tiny muted">Amber badge text (4.9:1 on Amber 100)</div></div></div>
+    <div class="swatch"><div class="chip" style="background:#FDEBD3"></div><div class="info"><b>Amber 100</b><code>#FDEBD3</code><div class="tiny muted">Amber badges, notices, heading underline</div></div></div>
+  </div>
+  <h3 style="margin-top:24px">Neutrals &amp; semantic</h3>
+  <div class="swatches">
+    <div class="swatch"><div class="chip" style="background:#F7F8F5"></div><div class="info"><b>Background</b><code>#F7F8F5</code><div class="tiny muted">Page ground</div></div></div>
+    <div class="swatch"><div class="chip" style="background:#FFFFFF;border-bottom:1px solid var(--line)"></div><div class="info"><b>Surface</b><code>#FFFFFF</code><div class="tiny muted">Cards, inputs, header</div></div></div>
+    <div class="swatch"><div class="chip" style="background:#263238"></div><div class="info"><b>Ink</b><code>#263238</code><div class="tiny muted">Body text (12.3:1 on bg)</div></div></div>
+    <div class="swatch"><div class="chip" style="background:#546E7A"></div><div class="info"><b>Ink 2</b><code>#546E7A</code><div class="tiny muted">Secondary text (5.4:1)</div></div></div>
+    <div class="swatch"><div class="chip" style="background:#5F737C"></div><div class="info"><b>Ink 3</b><code>#5F737C</code><div class="tiny muted">Hints, metadata (4.7:1 on bg)</div></div></div>
+    <div class="swatch"><div class="chip" style="background:#E1E6E3"></div><div class="info"><b>Line</b><code>#E1E6E3</code><div class="tiny muted">Borders, dividers, progress track</div></div></div>
+    <div class="swatch"><div class="chip" style="background:#BF3434"></div><div class="info"><b>Danger</b><code>#BF3434</code><div class="tiny muted">Validation errors, urgent badge</div></div></div>
+    <div class="swatch"><div class="chip" style="background:#1F5BD6"></div><div class="info"><b>Info</b><code>#1F5BD6</code><div class="tiny muted">Informational notices, confirmed status</div></div></div>
+  </div>
+</section>
+
+<section class="sg-section" id="type">
+  <h2>2. Typography</h2>
+  <p class="muted">Headings use <b>Poppins</b> (geometric, friendly, distinctive at large sizes). Body and UI text use <b>Inter</b> for legibility in forms and dense content. Both fall back to the system sans-serif stack. Sizes use <code>clamp()</code> so headings scale fluidly between breakpoints instead of jumping.</p>
+  <div class="type-row"><h1 style="margin:0">Display / H1</h1><span class="spec">Poppins 700 · clamp(2rem, 5vw, 3.25rem) · lh 1.2 · ls -0.01em</span></div>
+  <div class="type-row"><h2 style="margin:0">Heading / H2</h2><span class="spec">Poppins 600 · clamp(1.5rem, 3vw, 2.1rem) · lh 1.2</span></div>
+  <div class="type-row"><h3 style="margin:0">Heading / H3</h3><span class="spec">Poppins 600 · 1.2rem (19px) · lh 1.2</span></div>
+  <div class="type-row"><h4 style="margin:0">Heading / H4</h4><span class="spec">Poppins 600 · 1rem (16px)</span></div>
+  <div class="type-row"><p class="lead" style="margin:0">Lead paragraph — supporting copy under a page title.</p><span class="spec">Inter 400 · 1.1rem (17.6px) · lh 1.55 · Ink 2</span></div>
+  <div class="type-row"><p style="margin:0">Body — the default reading size for content and form labels. Minimum 16px so mobile browsers never auto-zoom inputs.</p><span class="spec">Inter 400 · 1rem (16px) · lh 1.55</span></div>
+  <div class="type-row"><p class="small" style="margin:0">Small — card metadata, helper text, table cells.</p><span class="spec">Inter 400 · 0.875rem (14px)</span></div>
+  <div class="type-row"><p class="tiny muted" style="margin:0">Tiny — timestamps, captions. Never used for essential information.</p><span class="spec">Inter 400 · 0.75rem (12px)</span></div>
+  <div class="type-row"><div class="eyebrow" style="margin:0">Eyebrow label</div><span class="spec">Poppins 600 · 0.72rem · uppercase · ls 0.14em · Green 500</span></div>
+  <div class="type-row"><span class="btn btn-primary" style="justify-self:start">Button label</span><span class="spec">Poppins 600 · 0.95rem · pill</span></div>
+</section>
+
+<section class="sg-section" id="spacing">
+  <h2>3. Spacing, radius &amp; elevation</h2>
+  <p class="muted">An 8px base scale keeps rhythm consistent across breakpoints. Section padding grows from 48px (mobile) to 64px (tablet+). Container is 92% wide with a 1200px maximum.</p>
+  <div class="space-row" style="margin-top:16px">
+    <div class="space-box" style="width:4px;height:4px"></div>
+    <div class="space-box" style="width:8px;height:8px"></div>
+    <div class="space-box" style="width:12px;height:12px"></div>
+    <div class="space-box" style="width:16px;height:16px"></div>
+    <div class="space-box" style="width:24px;height:24px"></div>
+    <div class="space-box" style="width:32px;height:32px"></div>
+    <div class="space-box" style="width:48px;height:48px">48</div>
+    <div class="space-box" style="width:64px;height:64px">64</div>
+    <div class="space-box" style="width:96px;height:96px">96</div>
+  </div>
+  <p class="small muted" style="margin-top:8px">4 · 8 · 12 · 16 · 24 · 32 · 48 · 64 · 96 px</p>
+  <div class="grid grid-3" style="margin-top:24px">
+    <div class="card" style="border-radius:8px"><b>Radius sm · 8px</b><div class="small muted">Inputs, nav items, tags</div></div>
+    <div class="card" style="border-radius:12px"><b>Radius md · 12px</b><div class="small muted">Tiles, slots, notices, images</div></div>
+    <div class="card" style="border-radius:16px"><b>Radius lg · 16px</b><div class="small muted">Cards, panels</div></div>
+    <div class="card" style="box-shadow:var(--shadow-sm)"><b>Shadow sm</b><div class="small muted">Resting cards</div></div>
+    <div class="card" style="box-shadow:var(--shadow-md)"><b>Shadow md</b><div class="small muted">Hover, floating chips</div></div>
+    <div class="card" style="box-shadow:var(--shadow-lg)"><b>Shadow lg</b><div class="small muted">Hero preview card</div></div>
+  </div>
+</section>
+
+<section class="sg-section" id="breakpoints">
+  <h2>4. Breakpoints &amp; responsive rules</h2>
+  <p class="muted">Two breakpoints, chosen where the content needs more columns — not for specific devices. All styles are written mobile-first; media queries only add complexity as width increases.</p>
+  <div class="table-wrap"><table class="bp-table">
+    <thead><tr><th>Breakpoint</th><th>Width</th><th>Test viewport</th><th>Layout</th><th>Key changes</th></tr></thead>
+    <tbody>
+      <tr><td>Mobile (default)</td><td>&lt; 768px</td><td>390 × 844</td><td>Single column</td><td>Hamburger menu; stacked hero; 1-column card grids; full-width buttons and form fields; segmented progress bar; horizontally scrolling date strip and dashboard tabs</td></tr>
+      <tr><td>Tablet</td><td>≥ 768px</td><td>768 × 1024</td><td>Two column where useful</td><td>Horizontal nav + header CTA; 2-column card grids; 2-column form grid; 3-per-row option tiles; dashboard sidebar; 3-column footer</td></tr>
+      <tr><td>Desktop</td><td>≥ 1024px</td><td>1440 × 900</td><td>Multi column</td><td>2-column hero with preview; 4-column card grids; 3-column wizard (steps / question / summary); sticky sidebars; 4-column footer</td></tr>
+    </tbody>
+  </table></div>
+  <div class="grid grid-3" style="margin-top:24px">
+    <div class="panel"><b>Fluid layout</b><p class="small muted" style="margin:6px 0 0">Container <code>width: 92%; max-width: 1200px</code>. Grids use <code>fr</code> units; no fixed pixel widths on content.</p></div>
+    <div class="panel"><b>Flexible images</b><p class="small muted" style="margin:6px 0 0"><code>max-width: 100%; height: auto</code> globally; card imagery locked to <code>aspect-ratio: 4/3</code> so rows align at any width.</p></div>
+    <div class="panel"><b>Media queries</b><p class="small muted" style="margin:6px 0 0"><code>@media (min-width: 768px)</code> and <code>(min-width: 1024px)</code> only. Layout changes, never content removal.</p></div>
+  </div>
+</section>
+
+<section class="sg-section" id="components">
+  <h2>5. Core components</h2>
+  <div class="comp-grid" style="margin-top:16px">
+    <div class="card"><h4>Buttons</h4><div class="stack" style="margin-top:12px">
+      <div class="row"><span class="btn btn-primary">Primary</span><span class="btn btn-accent">Accent</span></div>
+      <div class="row"><span class="btn btn-outline">Outline</span><span class="btn btn-ghost">Ghost</span><span class="btn btn-primary btn-sm">Small</span></div>
+      <div class="row"><span class="btn btn-primary" style="opacity:.45">Disabled</span></div>
+      <p class="tiny muted" style="margin:0">48px tall (44px small). Pill radius. Primary = green, accent = amber for the single most important action per screen.</p></div></div>
+    <div class="card"><h4>Form fields</h4><div class="stack" style="margin-top:12px">
+      <div class="field"><label>Label</label><input class="input" placeholder="Placeholder"><span class="hint">Helper text</span></div>
+      <div class="field error"><label>With error</label><input class="input" value="04"><span class="error-msg">Enter an Australian mobile number</span></div>
+      <div class="field"><label>Select</label><select class="select"><option>I'll be home</option></select></div>
+      <p class="tiny muted" style="margin:0">Labels always above the input. 48px min height, 4px focus ring in Green 100.</p></div></div>
+    <div class="card"><h4>Badges &amp; notices</h4><div class="stack" style="margin-top:12px">
+      <div class="row"><span class="badge"><span class="dot"></span> Default</span><span class="badge badge-amber">Amber</span><span class="badge badge-red">Urgent</span><span class="badge badge-blue">Info</span><span class="badge badge-grey">Grey</span></div>
+      <div class="notice"><svg><use href="#i-info"/></svg><span>Amber notice — caveats and disclaimers.</span></div>
+      <div class="notice notice-green"><svg><use href="#i-shield"/></svg><span>Green notice — reassurance, warranty.</span></div>
+      <div class="notice notice-blue"><svg><use href="#i-info"/></svg><span>Blue notice — neutral information.</span></div></div></div>
+    <div class="card"><h4>Choice tiles</h4><div class="choices" style="grid-template-columns:1fr 1fr;margin-top:12px">
+      <span class="choice selected"><svg><use href="#p-cockroach"/></svg>Selected</span><span class="choice"><svg><use href="#p-ant"/></svg>Default</span></div>
+      <p class="tiny muted" style="margin:12px 0 0">Icon + label + optional hint. 96px min height. Selected = green border, tinted fill, tick.</p></div>
+    <div class="card"><h4>Pest card</h4><div class="card pest-card card-hover" style="margin-top:12px"><div class="pest-visual" data-label="Photo"><svg><use href="#p-rodent"/></svg></div><h3>Rats &amp; mice</h3><p class="small muted" style="margin:0">Roof spaces, walls, pantries</p><div class="meta"><span class="small" style="font-weight:600">from $190</span><span class="badge badge-red">Urgent</span></div></div></div>
+    <div class="card"><h4>Slots &amp; dates</h4><div class="stack" style="margin-top:12px">
+      <div class="dates"><span class="date"><small>Wed</small>16</span><span class="date selected"><small>Thu</small>17</span><span class="date off"><small>Sun</small>20</span></div>
+      <div class="slots" style="grid-template-columns:1fr"><span class="slot selected"><span>9 – 11am</span><span class="badge">Popular</span></span><span class="slot"><span>1 – 3pm</span></span></div></div></div>
+    <div class="card"><h4>Progress</h4><div class="stack" style="margin-top:12px">
+      <div class="progress" style="margin:0"><span class="seg done"></span><span class="seg done"></span><span class="seg active"></span><span class="seg"></span><span class="seg"></span></div>
+      <p class="tiny muted" style="margin:0">Mobile/tablet: segmented bar (done = green, current = amber). Desktop: vertical step list.</p>
+      <div class="confidence"><span style="width:82%"></span></div><p class="tiny muted" style="margin:0">Confidence meter for identification results.</p></div></div>
+    <div class="card"><h4>Timeline</h4><ul class="timeline" style="margin-top:12px">
+      <li><span class="tdot done"><svg><use href="#i-check"/></svg></span><div class="small"><b>Done</b></div></li>
+      <li><span class="tdot now"></span><div class="small"><b>Current</b></div></li>
+      <li><span class="tdot"></span><div class="small"><b>Upcoming</b></div></li></ul></div>
+    <div class="card"><h4>Icon tiles</h4><div class="row" style="margin-top:12px"><span class="ico"><svg><use href="#i-search"/></svg></span><span class="ico ico-amber"><svg><use href="#i-dollar"/></svg></span><span class="ico"><svg><use href="#i-doc"/></svg></span><span class="step-num" style="margin:0">1</span></div><p class="tiny muted" style="margin:12px 0 0">48px tiles, 14px radius. Step numbers are 40px circles.</p></div>
+  </div>
+</section>
+
+<section class="sg-section" id="icons">
+  <h2>6. Iconography</h2>
+  <p class="muted">A single stroke-based set (2px, round caps) so UI icons and pest glyphs share one visual weight. Pest glyphs are deliberately schematic — recognisable silhouettes rather than realistic drawings — to reduce squeamishness and stay legible at 28px.</p>
+  <div class="row" style="gap:16px;margin-top:16px">
+    <span class="ico"><svg><use href="#p-cockroach"/></svg></span><span class="ico"><svg><use href="#p-ant"/></svg></span><span class="ico"><svg><use href="#p-spider"/></svg></span><span class="ico"><svg><use href="#p-rodent"/></svg></span><span class="ico"><svg><use href="#p-termite"/></svg></span><span class="ico"><svg><use href="#p-wasp"/></svg></span><span class="ico"><svg><use href="#p-bedbug"/></svg></span><span class="ico"><svg><use href="#p-flea"/></svg></span>
+  </div>
+  <div class="row" style="gap:16px;margin-top:12px">
+    <span class="ico"><svg><use href="#i-search"/></svg></span><span class="ico"><svg><use href="#i-dollar"/></svg></span><span class="ico"><svg><use href="#i-cal"/></svg></span><span class="ico"><svg><use href="#i-clock"/></svg></span><span class="ico"><svg><use href="#i-camera"/></svg></span><span class="ico"><svg><use href="#i-pin"/></svg></span><span class="ico"><svg><use href="#i-shield"/></svg></span><span class="ico"><svg><use href="#i-doc"/></svg></span><span class="ico"><svg><use href="#i-user"/></svg></span><span class="ico"><svg><use href="#i-warn"/></svg></span><span class="ico"><svg><use href="#i-house"/></svg></span><span class="ico"><svg><use href="#i-apt"/></svg></span>
+  </div>
+</section>
+
+<section class="sg-section" id="a11y" style="border:0">
+  <h2>7. Accessibility rules</h2>
+  <div class="grid grid-2" style="margin-top:16px">
+    <div class="panel"><b>Touch targets ≥ 44px</b><p class="small muted" style="margin:6px 0 0">Buttons 48px, nav items and menu button 44px, option tiles 96px — comfortably above the WCAG 2.2 (2.5.8) minimum of 24×24px.</p></div>
+    <div class="panel"><b>Contrast</b><p class="small muted" style="margin:6px 0 0">Body text 12.6:1, secondary text 5.4:1, white on Green 700 6.9:1, Green 900 on Amber 500 7.1:1 — all pass AA; body passes AAA.</p></div>
+    <div class="panel"><b>Labels &amp; errors</b><p class="small muted" style="margin:6px 0 0">Visible labels on every field; errors combine colour, an icon and text so colour is never the only cue.</p></div>
+    <div class="panel"><b>Focus &amp; keyboard</b><p class="small muted" style="margin:6px 0 0">4px focus ring on inputs; buttons are real <code>&lt;button&gt;</code> elements; menu button exposes <code>aria-expanded</code>.</p></div>
+  </div>
+</section>
+</div>
+
+<footer class="site-footer" style="margin-top:0"><div class="container footer-bottom" style="border:0;margin:0;padding:0"><span>YI Termite &amp; Pest Control · ICT6400 Assessment 1 · Style guide v1.0</span><span>Tokens: assets/base.css</span></div></footer>
+<script src="assets/app.js"></script>
+</body>
+</html>

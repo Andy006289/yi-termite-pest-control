@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  pests.xml — the pest guide and the identification quiz.
+  Read by js/data.js. Validated against schema/pests.xsd.
+
+  <quiz>    the three identification questions and their answer options.
+  <pest>    one entry per pest we treat. <cues> link a pest to quiz answers;
+            each matching answer adds its weight to that pest's score, and the
+            highest score is shown as the "most likely" result.
+-->
+<catalogue xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="schema/pests.xsd">
+
+  <quiz>
+    <question id="where" title="Where did you see it?">
+      <option id="kitchen" icon="i-home" hint="benches, appliances">Kitchen</option>
+      <option id="bathroom" icon="i-inside" hint="drains, damp areas">Bathroom</option>
+      <option id="roof" icon="i-house" hint="noises, droppings">Roof or walls</option>
+      <option id="bedroom" icon="i-apt" hint="bed, mattress">Bedroom</option>
+      <option id="outside" icon="i-leaf" hint="eaves, paving">Garden / outside</option>
+      <option id="timber" icon="i-warn" hint="mud tubes, hollow sound">Timber or skirting</option>
+    </question>
+    <question id="look" title="What did it look like?">
+      <option id="brown-flat" icon="p-cockroach" hint="runs fast, 1–2 cm">Brown &amp; flat</option>
+      <option id="tiny-trail" icon="p-ant" hint="black or brown">Tiny, in trails</option>
+      <option id="eight-legs" icon="p-spider" hint="web nearby">Eight legs</option>
+      <option id="furry" icon="p-rodent" hint="droppings, gnawing">Furry with tail</option>
+      <option id="pale-soft" icon="p-termite" hint="in timber, wings shed">Pale &amp; soft</option>
+      <option id="striped" icon="p-wasp" hint="nest nearby">Striped, flying</option>
+      <option id="bites" icon="p-bedbug" hint="marks on sheets">Bites at night</option>
+      <option id="jumps" icon="p-flea" hint="pets scratching">Jumps</option>
+    </question>
+    <question id="count" title="How many have you seen?" style="pills">
+      <option id="one">Just one</option>
+      <option id="few">A few</option>
+      <option id="lots">Lots / daily</option>
+      <option id="signs">Signs only (droppings, damage)</option>
+    </question>
+  </quiz>
+
+  <pest id="cockroach" tag="Common" tone="green">
+    <name>Cockroaches</name>
+    <species scientific="Blattella germanica">German cockroach</species>
+    <where>Kitchens, bathrooms, warm appliances</where>
+    <advice>Common in Melbourne kitchens; usually treated in one visit with gel baiting. Not dangerous, but multiplies quickly.</advice>
+    <included>Inspection, gel bait and residual spray in kitchen and wet areas, exterior perimeter, 3-month warranty.</included>
+    <variables>Heavy infestation, roof-void access, multiple units, or German cockroaches needing a follow-up visit.</variables>
+    <prep>
+      <step>Clear benches and under-sink cupboards in the kitchen.</step>
+      <step>Keep pets in a separate room or outside for 2 hours after treatment.</step>
+    </prep>
+    <alsoConsider>Australian cockroach</alsoConsider>
+    <cues>
+      <cue question="where" answer="kitchen" weight="3"/>
+      <cue question="where" answer="bathroom" weight="2"/>
+      <cue question="look" answer="brown-flat" weight="5"/>
+      <cue question="count" answer="few" weight="1"/>
+      <cue question="count" answer="lots" weight="1"/>
+    </cues>
+  </pest>
+
+  <pest id="ant" tag="Common" tone="green">
+    <name>Ants</name>
+    <species scientific="Ochetellus glaber">Black house ant</species>
+    <where>Trails near food, paving, gardens</where>
+    <advice>Trails usually lead back to a nest outside. Non-repellent baits reach the colony instead of scattering it.</advice>
+    <included>Inspection, non-repellent perimeter spray, granular bait at nest entries, 3-month warranty.</included>
+    <variables>Multiple nests, carpenter ants in timber, or ants nesting inside wall cavities.</variables>
+    <prep>
+      <step>Wipe up food spills but leave the ant trails visible so the technician can follow them.</step>
+      <step>Move pot plants away from the house perimeter.</step>
+    </prep>
+    <alsoConsider>Carpenter ant</alsoConsider>
+    <cues>
+      <cue question="where" answer="kitchen" weight="2"/>
+      <cue question="where" answer="outside" weight="3"/>
+      <cue question="look" answer="tiny-trail" weight="5"/>
+      <cue question="count" answer="lots" weight="2"/>
+    </cues>
+  </pest>
+
+  <pest id="spider" tag="Common" tone="green">
+    <name>Spiders</name>
+    <species scientific="Badumna insignis">Black house spider</species>
+    <where>Eaves, sheds, window frames</where>
+    <advice>Most house spiders are harmless, but redbacks and white-tails near living areas are worth treating.</advice>
+    <included>Inspection, web removal, residual spray to eaves, window frames and sheds, 6-month warranty.</included>
+    <variables>Two-storey eaves, large sheds or dense garden beds against the house.</variables>
+    <prep>
+      <step>Clear access to eaves, the garage and window frames.</step>
+    </prep>
+    <alsoConsider>Redback spider</alsoConsider>
+    <cues>
+      <cue question="where" answer="outside" weight="3"/>
+      <cue question="where" answer="roof" weight="1"/>
+      <cue question="look" answer="eight-legs" weight="5"/>
+      <cue question="count" answer="one" weight="1"/>
+    </cues>
+  </pest>
+
+  <pest id="rodent" tag="Urgent" tone="red">
+    <name>Rats &amp; mice</name>
+    <species scientific="Rattus rattus">Roof rat</species>
+    <where>Roof spaces, walls, pantries</where>
+    <advice>Rodents gnaw wiring and contaminate food. Book soon; we also find and seal the entry points.</advice>
+    <included>Roof-void inspection, tamper-proof bait stations, entry-point report, follow-up check.</included>
+    <variables>Roof access difficulty, the number of bait stations needed, or proofing work to seal entry points.</variables>
+    <prep>
+      <step>Make sure the manhole to the roof space is accessible.</step>
+      <step>Store food in sealed containers.</step>
+    </prep>
+    <alsoConsider>House mouse</alsoConsider>
+    <cues>
+      <cue question="where" answer="roof" weight="4"/>
+      <cue question="where" answer="kitchen" weight="1"/>
+      <cue question="look" answer="furry" weight="5"/>
+      <cue question="count" answer="signs" weight="2"/>
+    </cues>
+  </pest>
+
+  <pest id="termite" tag="Inspect first" tone="amber">
+    <name>Termites</name>
+    <species scientific="Coptotermes acinaciformis">Subterranean termite</species>
+    <where>Timber, skirting, mud tubes</where>
+    <advice>Possible termite activity always needs a professional inspection. Do not disturb the timber or spray it yourself.</advice>
+    <included>Full timber pest inspection with thermal camera and moisture meter, and a written report with treatment options.</included>
+    <variables>Treatment (baiting or a chemical barrier) is quoted separately after the inspection.</variables>
+    <prep>
+      <step>Do not break open or spray any damaged timber.</step>
+      <step>Clear access under the house and to the roof space.</step>
+    </prep>
+    <alsoConsider>Wood borer</alsoConsider>
+    <cues>
+      <cue question="where" answer="timber" weight="5"/>
+      <cue question="look" answer="pale-soft" weight="5"/>
+      <cue question="count" answer="signs" weight="2"/>
+    </cues>
+  </pest>
+
+  <pest id="wasp" tag="Seasonal" tone="green">
+    <name>Wasps &amp; bees</name>
+    <species scientific="Vespula germanica">European wasp</species>
+    <where>Nests under eaves, in walls</where>
+    <advice>European wasps can sting repeatedly. Keep clear of the nest; honey bees are relocated rather than destroyed where possible.</advice>
+    <included>Nest location, treatment and removal where accessible, 1-month warranty.</included>
+    <variables>Nests inside wall cavities or at height, or honey-bee swarms needing a beekeeper.</variables>
+    <prep>
+      <step>Keep children and pets away from the nest area.</step>
+    </prep>
+    <alsoConsider>Honey bee swarm</alsoConsider>
+    <cues>
+      <cue question="where" answer="outside" weight="3"/>
+      <cue question="where" answer="roof" weight="1"/>
+      <cue question="look" answer="striped" weight="5"/>
+      <cue question="count" answer="lots" weight="1"/>
+    </cues>
+  </pest>
+
+  <pest id="bedbug" tag="Multi-visit" tone="amber">
+    <name>Bed bugs</name>
+    <species scientific="Cimex lectularius">Common bed bug</species>
+    <where>Mattress seams, bed frames</where>
+    <advice>Bed bugs hide in seams and frames and need two treatments about two weeks apart to break the life cycle.</advice>
+    <included>Two visits: inspection and treatment of beds and furniture, then a follow-up treatment after 14 days.</included>
+    <variables>The number of rooms affected and whether furniture must be heat-treated or disposed of.</variables>
+    <prep>
+      <step>Wash all bedding on a hot cycle and bag it until after treatment.</step>
+      <step>Clear items from under the beds.</step>
+    </prep>
+    <alsoConsider>Carpet beetle</alsoConsider>
+    <cues>
+      <cue question="where" answer="bedroom" weight="5"/>
+      <cue question="look" answer="bites" weight="5"/>
+      <cue question="count" answer="signs" weight="1"/>
+    </cues>
+  </pest>
+
+  <pest id="flea" tag="Common" tone="green">
+    <name>Fleas</name>
+    <species scientific="Ctenocephalides felis">Cat flea</species>
+    <where>Carpets, pet bedding, yards</where>
+    <advice>Treat the pets with a vet product on the same day as the house, or the fleas come straight back.</advice>
+    <included>Interior carpet and floor treatment, pet bedding areas and the yard, 1-month warranty.</included>
+    <variables>Large yards, many carpeted rooms or untreated pets.</variables>
+    <prep>
+      <step>Vacuum all floors thoroughly on the morning of the treatment.</step>
+      <step>Treat pets with a vet flea product on the same day.</step>
+    </prep>
+    <alsoConsider>Sand flea</alsoConsider>
+    <cues>
+      <cue question="where" answer="bedroom" weight="1"/>
+      <cue question="where" answer="outside" weight="1"/>
+      <cue question="look" answer="jumps" weight="5"/>
+      <cue question="count" answer="lots" weight="2"/>
+    </cues>
+  </pest>
+
+</catalogue>
